@@ -49,25 +49,25 @@ class starsGame extends Phaser.Scene {
         this.gameOver = false;
 
         //  A simple background for our game
-        this.add.image(400, 300, 'sky');
+        this.add.image(320, 240, 'sky');
 
         //  The platforms group contains the ground and the 2 ledges we can jump on
         this.platforms = this.physics.add.staticGroup();
 
         //  Here we create the ground.
         //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
-        this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+        this.platforms.create(320, 360, 'ground').setScale(2).refreshBody();
 
         //  Now let's create some ledges
-        this.platforms.create(600, 400, 'ground');
-        this.platforms.create(50, 250, 'ground');
-        this.platforms.create(750, 220, 'ground');
+        this.platforms.create(480, 250, 'ground');
+        this.platforms.create(40, 160, 'ground');
+        this.platforms.create(600, 110, 'ground');
 
         // The player and its settings
-        this.player = this.physics.add.sprite(100, 450, 'dude');
+        this.player = this.physics.add.sprite(100, 200, 'dude');
 
         //  Player physics properties. Give the little guy a slight bounce.
-        this.player.setBounce(0.2);
+        this.player.setBounce(0.15);
         this.player.setCollideWorldBounds(true);
 
         //  Our player animations, turning, walking left and walking right.
@@ -98,7 +98,7 @@ class starsGame extends Phaser.Scene {
         this.stars = this.physics.add.group({
             key: 'star',
             repeat: 11,
-            setXY: { x: 12, y: 0, stepX: 70 }
+            setXY: { x: 12, y: 0, stepX: 56 }
         });
 
         this.stars.children.iterate(function (child) {
@@ -155,7 +155,7 @@ class starsGame extends Phaser.Scene {
 
         //  Add and update the score
         this.score += 10;
-        this.scoreText.setText('Score: ' + score);
+        this.scoreText.setText('Score: ' + this.score);
 
         if (this.stars.countActive(true) === 0) {
             //  A new batch of stars to collect
@@ -165,7 +165,7 @@ class starsGame extends Phaser.Scene {
 
             });
 
-            var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+            var x = (player.x < 320) ? Phaser.Math.Between(320, 640) : Phaser.Math.Between(0, 320);
 
             var bomb = this.bombs.create(x, 16, 'bomb');
             bomb.setBounce(1);
