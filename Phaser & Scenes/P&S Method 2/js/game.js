@@ -1,4 +1,6 @@
-
+import Phaser from ‘phaser’;
+import GameScene from ‘./js/dragonGame’;
+import VictoryLap from ‘./js/starsGame’;
 
 // our game's configuration
 let config = {
@@ -12,10 +14,11 @@ let config = {
       debug: false
     }
   },
-  scene: [dragonGame, starsGame]
+  
 };
 
 // create the game, and pass it the configuration
 let game = new Phaser.Game(config);
-
+game.scene.add(‘dragonGame ’, dragonGame );
+game.scene.add(‘starsGame’, starsGame);
 

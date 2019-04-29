@@ -1,9 +1,11 @@
 class dragonGame extends Phaser.Scene {
+
+/*method 2 comment this out
     constructor() {
         super({ key: "dragonGame" });
     }// end constructor
 
-
+*/
 
     // create a new scene named "Game"
     //gameScene = new Phaser.Scene('Game');

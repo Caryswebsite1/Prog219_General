@@ -20,10 +20,12 @@ var sGame = new Phaser.Game(sConfig);
 */
 
 class starsGame extends Phaser.Scene {
+
+/* method 2 comment this out
     constructor() {
         super({ key: "starsGame" });
     }// end constructor
-
+*/
     /*
     player = "";
     stars = "";
